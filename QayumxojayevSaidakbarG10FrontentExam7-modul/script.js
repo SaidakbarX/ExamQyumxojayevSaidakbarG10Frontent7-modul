@@ -223,5 +223,5 @@ updateDisplay() {
     }
 }
 
-// Ilovani ishga tushirish
+
 const carManager = new CarManager();
