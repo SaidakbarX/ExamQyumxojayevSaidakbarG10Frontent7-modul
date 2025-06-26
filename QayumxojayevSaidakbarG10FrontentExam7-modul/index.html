@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avtomobillar Boshqaruvi - CRUD App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="stats-card">
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <h3 id="totalCars">0</h3>
+                            <p class="mb-0">Jami Avtomobillar</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 id="todayAdded">0</h3>
+                            <p class="mb-0">Bugun Qo'shilgan</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 id="lastUpdate">-</h3>
+                            <p class="mb-0">Oxirgi Yangilanish</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Forma qismi -->
+            <div class="col-lg-4 mb-4">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h4 class="mb-0">
+                            <i class="fas fa-car me-2"></i>
+                            <span id="formTitle">Yangi Avtomobil Qo'shish</span>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="carForm">
+                            <div class="mb-3">
+                                <label for="carTitle" class="form-label">Avtomobil Nomi</label>
+                                <input type="text" class="form-control" id="carTitle" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carBrand" class="form-label">Brend</label>
+                                <input type="text" class="form-control" id="carBrand" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carYear" class="form-label">Yil</label>
+                                <input type="number" class="form-control" id="carYear" min="1900" max="2025" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carType" class="form-label">Turi</label>
+                                <select class="form-control" id="carType" required>
+                                    <option value="">Turini tanlang</option>
+                                    <option value="Sedan">Sedan</option>
+                                    <option value="Hatchback">Hatchback</option>
+                                    <option value="SUV">SUV</option>
+                                    <option value="Pickup">Pickup</option>
+                                    <option value="Krossover">Krossover</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carColor" class="form-label">Rangi</label>
+                                <input type="text" class="form-control" id="carColor" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carPrice" class="form-label">Narxi ($)</label>
+                                <input type="number" class="form-control" id="carPrice" min="0" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carEngine" class="form-label">Dvigatel turi</label>
+                                <input type="text" class="form-control" id="carEngine" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-2"></i>
+                                    <span id="submitBtn">Saqlash</span>
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">
+                                    <i class="fas fa-times me-2"></i>
+                                    Bekor qilish
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ma'lumotlar qismi -->
+            <div class="col-lg-8">
+                <div class="card fade-in">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">
+                            <i class="fas fa-list me-2"></i>
+                            Avtomobillar Ro'yxati
+                        </h4>
+                        <button class="btn btn-light" id="refreshBtn">
+                            <i class="fas fa-sync-alt me-2"></i>
+                            Yangilash
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="carsContainer">
+                            <div class="empty-state">
+                                <i class="fas fa-car"></i>
+                                <h5>Hozircha avtomobillar yo'q</h5>
+                                <p>Yangi avtomobil qo'shish uchun chap tarafdagi formani to'ldiring</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
